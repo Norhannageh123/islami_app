@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_app/Model/Sura_model.dart';
-import 'package:islami_app/Widgets/appcolors.dart';
+import 'package:islami_app/utls/app_style.dart';
+import 'package:islami_app/utls/appcolors.dart';
+
 import 'package:islami_app/tabs/quran/sura_content.dart';
 
 class SuraDetailsScreen extends StatefulWidget {
@@ -17,10 +19,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
-    final keyboardHeight = MediaQuery.of(context).viewInsets.bottom;
-
     var args = ModalRoute.of(context)?.settings.arguments as SuraModel;
     if (verses.isEmpty) {
       loadSuraFile(args.FileName);
@@ -31,10 +30,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
       appBar: AppBar(
         title: Text(
           args.suraEngName,
-          style: TextStyle(
-            color: AppColor.PrimaryDark,
-            fontSize: screenWidth * 0.05,
-          ),
+          style: AppStyle.primary24bold,
         ),
       ),
       body: Stack(
@@ -54,10 +50,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
               SizedBox(height: screenHeight * 0.03),
               Text(
                 args.SuraArName,
-                style: TextStyle(
-                  color: AppColor.PrimaryDark,
-                  fontSize: screenWidth * 0.06,
-                ),
+                style: AppStyle.primary24bold,
               ),
               SizedBox(height: screenHeight * 0.05),
               Expanded(

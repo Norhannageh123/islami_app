@@ -2,8 +2,9 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_app/Model/hadith_model.dart';
-import 'package:islami_app/Widgets/appcolors.dart';
 import 'package:islami_app/tabs/hadeth/hadith_details_screen.dart';
+import 'package:islami_app/utls/app_style.dart';
+import 'package:islami_app/utls/appcolors.dart';
 
 class HadethTab extends StatefulWidget {
   const HadethTab({super.key});
@@ -50,12 +51,12 @@ class _HadethTabState extends State<HadethTab> {
                   children: [
                     Text(
                       hadithList[itemIndex].title,
-                      style: const TextStyle(fontSize: 20),
+                      style: AppStyle.black24bold,
                     ),
                     Expanded(
                       child: Text(
                         hadithList[itemIndex].content.join(''),
-                        style: const TextStyle(fontSize: 20),
+                        style: AppStyle.black16bold,
                       ),
                     ),
                   ],

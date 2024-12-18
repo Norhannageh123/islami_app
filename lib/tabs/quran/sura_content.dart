@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:islami_app/Widgets/appcolors.dart';
+import 'package:islami_app/utls/app_style.dart';
+import 'package:islami_app/utls/appcolors.dart';
 
 class SuraContent extends StatefulWidget {
   const SuraContent({super.key, required this.content, required this.index});
@@ -45,10 +46,9 @@ class _SuraContentState extends State<SuraContent> {
               "${widget.content} [${widget.index + 1}]",
               textAlign: TextAlign.center,
               textDirection: TextDirection.rtl,
-              style: TextStyle(
+              style: AppStyle.primary20bold.copyWith(
                 color: const Color.fromARGB(255, 148, 137, 118),
-                fontSize: screenWidth * 0.05,
-              ),
+              )
             ),
           );
         },

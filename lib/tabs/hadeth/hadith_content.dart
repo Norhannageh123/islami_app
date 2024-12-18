@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/utls/app_style.dart';
 
 class HadithContent extends StatefulWidget {
   const HadithContent({super.key, required this.content});
@@ -25,8 +26,9 @@ class _HadithContentState extends State<HadithContent> {
         child: Text(
           widget.content,
           textAlign: TextAlign.center,
-          style: const TextStyle(
-              color: Color.fromARGB(255, 148, 137, 118), fontSize: 20),
+          style: AppStyle.primary20bold.copyWith(
+            color:const  Color.fromARGB(255, 148, 137, 118),
+          ),
         ),
       ),
     );

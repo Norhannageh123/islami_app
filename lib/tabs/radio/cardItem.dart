@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:islami_app/Widgets/appcolors.dart';
-import 'package:islami_app/tabs/radio/icon_item.dart';
+import 'package:islami_app/utls/app_style.dart';
+import 'package:islami_app/utls/appcolors.dart';
 
+import 'package:islami_app/tabs/radio/icon_item.dart';
+ 
 class Carditem extends StatelessWidget {
   const Carditem({super.key,required this.text,required this.icon1, required this.size1,required this.icon2, required this.size2,required this.icon3, required this.size3});
   final String text;
@@ -13,6 +15,7 @@ class Carditem extends StatelessWidget {
   final double size3;
   @override
   Widget build(BuildContext context) {
+     var height=MediaQuery.of(context).size.height;
     return  Padding(
             padding: const EdgeInsets.all(15.0),
             child: Container(
@@ -20,7 +23,7 @@ class Carditem extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 color: AppColor.PrimaryDark,
               ),
-              height: 150,
+              height: height*0.20,
               width: double.infinity,
               child: Stack(
                 children: [
@@ -35,11 +38,7 @@ class Carditem extends StatelessWidget {
                         const SizedBox(height: 20),
                          Text(
                           text,
-                          style: const TextStyle(
-                            fontSize: 20,
-                            color: AppColor.blackColor,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style: AppStyle.black20bold,
                         ),
                         const SizedBox(height: 10),
                         Row(

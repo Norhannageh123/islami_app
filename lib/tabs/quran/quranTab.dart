@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/Model/Sura_model.dart';
-import 'package:islami_app/Widgets/appcolors.dart';
 import 'package:islami_app/tabs/quran/sura_details_screen.dart';
 import 'package:islami_app/tabs/quran/sura_widget.dart';
+import 'package:islami_app/utls/app_style.dart';
+import 'package:islami_app/utls/appcolors.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class QuranTab extends StatefulWidget {
@@ -38,8 +39,7 @@ class _QuranTabState extends State<QuranTab> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
-    final keyboardHeight = MediaQuery.of(context).viewInsets.bottom;
+  
 
     return Container(
       margin: EdgeInsets.all(screenWidth * 0.05),
@@ -72,8 +72,7 @@ class _QuranTabState extends State<QuranTab> {
                 AssetImage('assets/images/search_icon.png'),
               ),
               hintText: "Sura Name",
-              hintStyle:
-                  TextStyle(color: AppColor.whiteColor, fontSize: screenWidth * 0.05),
+              hintStyle: AppStyle.white16bold,
             ),
             onChanged: (text) {
               SearchText = text;
@@ -90,9 +89,9 @@ class _QuranTabState extends State<QuranTab> {
           const SizedBox(height: 20),
           SearchText.isNotEmpty ? SizedBox() : BuildMostResently(),
           const SizedBox(height: 10),
-          const Text(
+          Text(
             "Sura List",
-            style: TextStyle(color: AppColor.whiteColor, fontSize: 20),
+            style: AppStyle.white16bold,
           ),
           Expanded(
               child: ListView.separated(
@@ -135,45 +134,49 @@ class _QuranTabState extends State<QuranTab> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+        Text(
           "Most Resently",
-          style: TextStyle(
-            color: AppColor.whiteColor,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
+          style: AppStyle.white16bold,
         ),
         const SizedBox(height: 10),
-        Container(
-          decoration: BoxDecoration(
-            color: AppColor.PrimaryDark,
-            borderRadius: BorderRadius.circular(20),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            decoration: BoxDecoration(
+              color: AppColor.PrimaryDark,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    loudSuraList['SuraEnName'] ?? '',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        loudSuraList['SuraEnName'] ?? '',
+                        style: AppStyle.black24bold,
+                      ),
+                      Text(
+                        loudSuraList['SuraArName'] ?? '',
+                        style: AppStyle.black24bold,
+                      ),
+                      Text(
+                        loudSuraList['NumOfVerses'] != null
+                            ? '${loudSuraList['NumOfVerses']} verses'
+                            : '',
+                        style: AppStyle.black14bold,
+                      ),
+                    ],
                   ),
-                  Text(
-                    loudSuraList['SuraArName'] ?? '',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    loudSuraList['NumOfVerses'] ?? '',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  Image.asset(
+                    "assets/images/recently_image.png",
+                    width: 80, // Adjust the image size responsively
                   ),
                 ],
               ),
-              Image.asset(
-                "assets/images/recently_image.png",
-                width: 80, // Adjust the image size responsively
-              ),
-            ],
+            ),
           ),
         ),
       ],

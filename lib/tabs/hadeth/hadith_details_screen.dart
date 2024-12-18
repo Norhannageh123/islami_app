@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/Model/hadith_model.dart';
-import 'package:islami_app/Widgets/appcolors.dart';
 import 'package:islami_app/tabs/hadeth/hadith_content.dart';
+import 'package:islami_app/utls/app_style.dart';
+import 'package:islami_app/utls/appcolors.dart';
 
 class HadithDetailsScreen extends StatefulWidget {
   const HadithDetailsScreen({super.key});
@@ -39,8 +40,7 @@ class _HadithDetailsScreenState extends State<HadithDetailsScreen> {
               const SizedBox(height: 20),
               Text(
                 args.title,
-                style: const TextStyle(
-                    color: AppColor.PrimaryDark, fontSize: 20),
+                style: AppStyle.primary24bold,
               ),
               const SizedBox(height: 40),
               Expanded(

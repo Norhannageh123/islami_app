@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/Model/Sura_model.dart';
-import 'package:islami_app/Widgets/appcolors.dart';
+import 'package:islami_app/utls/app_style.dart';
+
 
 class SuraWidget extends StatelessWidget {
   SuraWidget({
@@ -35,11 +36,8 @@ class SuraWidget extends StatelessWidget {
               ),
               Text(
                 "${index + 1}",
-                style: TextStyle(
-                  color: AppColor.whiteColor,
-                  fontSize: screenWidth * 0.04,
+                style: AppStyle.white20bold,
                 ),
-              ),
             ],
           ),
           SizedBox(
@@ -54,26 +52,17 @@ class SuraWidget extends StatelessWidget {
                   children: [
                     Text(
                       suramodel.suraEngName,
-                      style: TextStyle(
-                        color: AppColor.whiteColor,
-                        fontSize: screenWidth * 0.045,
-                      ),
+                      style: AppStyle.white20bold,
                     ),
                     Text(
                       "${suramodel.ayaNumber} Verses",
-                      style: TextStyle(
-                        color: AppColor.whiteColor,
-                        fontSize: screenWidth * 0.035,
-                      ),
+                      style:AppStyle.white14bold
                     ),
                   ],
                 ),
                 Text(
                   suramodel.SuraArName,
-                  style: TextStyle(
-                    color: AppColor.whiteColor,
-                    fontSize: screenWidth * 0.045,
-                  ),
+                  style: AppStyle.white20bold,
                 ),
               ],
             ),
